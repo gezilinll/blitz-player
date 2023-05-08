@@ -1,0 +1,22 @@
+{
+  "name": "blitz",
+  "version": "1.0.0",
+  "description": "a fastest video player and processor.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gezilinll/Blitz.git"
+  },
+  "author": "gezilinll",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/gezilinll/Blitz/issues"
+  },
+  "homepage": "https://github.com/gezilinll/Blitz#readme",
+  "devDependencies": {
+    "electron": "^24.2.0"
+  }
+}
