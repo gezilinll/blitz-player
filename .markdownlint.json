@@ -1,0 +1,9 @@
+{
+    "extends": "@gaoding/markdownlint-config",
+    "MD001": false,
+    "MD025": false,
+    "MD034": false,
+    "MD041": false,
+    "MD044": false,
+    "MD051": false
+}
