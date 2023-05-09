@@ -1,32 +1,55 @@
 {
   "name": "blitz",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "description": "a fastest video player and processor.",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gezilinll/Blitz.git"
-  },
   "author": "gezilinll",
-  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve"
+  },
+  "main": "background.js",
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13",
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-typescript": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-airbnb": "^6.0.0",
+    "@vue/eslint-config-typescript": "^9.1.0",
+    "electron": "^13.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-vue": "^8.0.3",
+    "eslint-plugin-vuejs-accessibility": "^1.1.0",
+    "less": "^4.0.0",
+    "less-loader": "^8.0.0",
+    "lint-staged": "^11.1.2",
+    "typescript": "~4.5.5"
+  },
   "bugs": {
     "url": "https://github.com/gezilinll/Blitz/issues"
   },
-  "homepage": "https://github.com/gezilinll/Blitz#readme",
-  "devDependencies": {
-    "@electron-forge/cli": "^6.1.1",
-    "@electron-forge/maker-deb": "^6.1.1",
-    "@electron-forge/maker-rpm": "^6.1.1",
-    "@electron-forge/maker-squirrel": "^6.1.1",
-    "@electron-forge/maker-zip": "^6.1.1",
-    "electron": "^24.2.0"
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+  "homepage": "https://github.com/gezilinll/Blitz#readme",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gezilinll/Blitz.git"
   }
 }
