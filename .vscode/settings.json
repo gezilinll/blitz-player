@@ -1,80 +1,152 @@
 {
-  "explorer.autoRevealExclude": {
-    "**/node_modules": false
-  },
-  "workbench.editor.highlightModifiedTabs": true,
-  "terminal.integrated.wordSeparators": " ()[]{}',，\"`─‘’“”<>（）【】{}《》「」:：",
-  "editor.codeActionsOnSave": {
-    "source.addMissingImports": false,
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
-    "source.fixAll.markdownlint": true
-  },
-  "editor.formatOnSave": true,
-  "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:：'\",.<>/?，。‘’“”；（）【】{}《》「」",
-  "emmet.useInlineCompletions": true,
-  "editor.linkedEditing": true,
-  "html.autoClosingTags": true,
-  "search.exclude": {
-    "**/node_modules": true
-  },
-  "css.validate": false,
-  "less.validate": false,
-  "stylelint.enable": true,
-  "stylelint.packageManager": "npm",
-  "stylelint.validate": ["css", "less", "html", "vue"],
+    // 指定使用安装的 typescript 版本
+    "typescript.tsdk": "node_modules/typescript/lib",
+    // css 变量提示扫描文件
+    "cssVariables.lookupFiles": [
+        "apps/design/node_modules/@gaoding/design-tokens/dist/css/alias.css",
+        "apps/design/node_modules/@gaoding/design-tokens/dist/css/editor.css"
+    ],
+    // 禁止使用 vscode 修改指定的分支，例如提交，合并
+    "git.branchProtection": ["master"],
+    // 刷新文件管理器时让 node_modules 下的文件也能被定位到
+    "explorer.autoRevealExclude": {
+        "**/node_modules": false
+    },
+    // 高亮被修改了的文件的 tab
+    "workbench.editor.highlightModifiedTabs": true,
+    // 优化 terminal 中文分词策略
+    "terminal.integrated.wordSeparators": " ()[]{}',，\"`─‘’“”<>（）【】{}《》「」:：",
+    // 保存文件时触发
+    "editor.codeActionsOnSave": {
+        // 自动导入缺失的模块
+        "source.addMissingImports": false,
+        // 各种 lint 的自动修复
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true,
+        "source.fixAll.markdownlint": true
+    },
+    // 保存文件时自动格式化
+    "editor.formatOnSave": true,
+    // 优化 editor 中文分词策略
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:：'\",.<>/?，。‘’“”；（）【】{}《》「」",
+    // 内联当前补全项
+    "emmet.useInlineCompletions": true,
+    // 修改标签首部自动修改标签尾部
+    "editor.linkedEditing": true,
+    // html 自动闭合标签
+    "html.autoClosingTags": true,
+    // 指定哪些文件不参与搜索
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.turbo": true,
+        "**/dist": true,
+        "**/apps/design/stats.html": true
+    },
+    // 指定 vscode 运行 npm scripts 时使用的包管理器
+    "npm.packageManager": "pnpm",
 
-  "eslint.enable": true,
-  "eslint.packageManager": "npm",
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "html"
-  ],
+    // gitlens
+    // 配置了 remote 后 gitlens 才能知道各种操作应该和哪个 git 服务器关联
+    // 例如在 github 上打开当前文件，它就能依靠配置的稿定 git 服务器计算出正确的网页地址
+    "gitlens.remotes": [
+        {
+            "domain": "git.gaoding.com",
+            "type": "GitHub"
+        }
+    ],
+    "gitlens.autolinks": [
+        {
+            "ignoreCase": true,
+            "alphanumeric": false,
+            "prefix": "PRODBUG-",
+            "url": "https://jira.huanleguang.com/browse/PRODBUG-<num>"
+        },
+        {
+            "ignoreCase": true,
+            "alphanumeric": false,
+            "prefix": "WEBEDITOR-",
+            "url": "https://jira.huanleguang.com/browse/WEBEDITOR-<num>"
+        }
+    ],
 
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[xml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[svg]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    // stylelint
+    "css.validate": false,
+    "less.validate": false,
+    // stylelint 的错误提示包含了前面俩的错误提示
+    "stylelint.enable": true,
+    "stylelint.packageManager": "pnpm",
+    "stylelint.validate": ["css", "less", "html", "vue"],
+
+    // eslint
+    "eslint.enable": true,
+    "eslint.packageManager": "pnpm",
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+        "typescript",
+        "typescriptreact",
+        "vue",
+        "json",
+        "jsonc",
+        "html"
+    ],
+
+    // formatter
+    // 部分同学 vetur 也设置了 formatter，导致 vue 文件格式化不生效，请禁用 vetur 并删掉 vetur 格式化设置
+    // 简化写法目前优先级没用户级别设置优先级高，可能导致保存时不会触发 prettier
+    // 具体查看：https://github.com/microsoft/vscode/issues/168411
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svg]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+
+    // version lens
+    "versionlens.npm.files": "**/{package,web-module}.json",
+    "versionlens.npm.dependencyProperties": [
+        "dependencies",
+        "devDependencies",
+        "peerDependencies",
+        "optionalDependencies",
+        "pnpm.overrides"
+    ],
+
+    "cSpell.words": ["AIGC", "antd", "FILEMS", "xiaohongshu"]
 }
