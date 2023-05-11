@@ -1,9 +1,17 @@
 <template>
-    <title>Blitz</title>
-    <div>
-        <canvas style="background-color: blueviolet; width: 100vw; height: 70vh"></canvas>
-    </div>
-    <div>
-        <canvas style="background-color: blueviolet; width: 100vw; height: 30vh"></canvas>
+    <div style="width: 100vw; height: 70vh">
+        <PlayerView></PlayerView>
     </div>
 </template>
+
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import PlayerView from '@/views/PlayerView.vue'; // @ is an alias to /src
+
+@Options({
+    components: {
+        PlayerView,
+    },
+})
+export default class App extends Vue {}
+</script>
