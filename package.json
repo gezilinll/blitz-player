@@ -1,7 +1,7 @@
 {
     "name": "blitz",
     "version": "1.0.0",
-    "main": "dist-electron/main/index.js",
+    "main": "out/main/index.js",
     "description": "Fastest video player and processor.",
     "author": "gezilinll",
     "license": "GPL-3.0-or-later",
