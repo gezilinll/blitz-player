@@ -1,17 +1,18 @@
-<script setup lang="ts">
-import PlayerView from './views/PlayerView.vue';
-import ControlBar from './views/ControlBar.vue';
-</script>
-
 <template>
-    <div style="width: 100vw; height: 90vh">
-        <PlayerView></PlayerView>
-    </div>
-    <div style="width: 100vw; height: 10vh">
-        <ControlBar></ControlBar>
+    <div>
+        <Player />
     </div>
 </template>
 
+<script lang="ts">
+import Player from './views/PlayerView.vue';
+
+export default {
+    components: {
+        Player,
+    },
+};
+</script>
 <style>
 body {
     margin: 0 !important;
