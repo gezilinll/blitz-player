@@ -2,7 +2,7 @@
     <div class="player-container">
         <div class="video-area" :style="{ height: videoAreaHeight + 'px' }"></div>
         <div class="controls-area" :style="{ height: controlsAreaHeight + 'px' }">
-            <button class="control-button">
+            <button class="control-button tooltip" title="上一个视频">
                 <i class="fas fa-step-backward fa-3x"></i>
             </button>
             <button class="control-button">
@@ -69,5 +69,29 @@ onBeforeUnmount(() => {
 
 .volume-slider {
     width: 100px;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
 }
 </style>
