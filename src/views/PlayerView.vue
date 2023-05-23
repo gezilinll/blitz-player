@@ -5,7 +5,7 @@
             <button class="control-button tooltip" title="上一个视频">
                 <i class="fas fa-step-backward fa-3x"></i>
             </button>
-            <button class="control-button">
+            <button class="control-button" @click="playVideo">
                 <i class="fas fa-play fa-3x"></i>
             </button>
             <button class="control-button">
@@ -19,6 +19,7 @@
 <script lang="ts" setup>
 import '@fortawesome/fontawesome-free/css/all.css';
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { Player } from './Player';
 
 const videoAreaHeight = ref(0);
 const controlsAreaHeight = ref(0);
@@ -37,6 +38,11 @@ onMounted(() => {
 onBeforeUnmount(() => {
     window.removeEventListener('resize', calculateHeights);
 });
+
+function playVideo() {
+    const player = new Player();
+    player.start();
+}
 </script>
 
 <style>
